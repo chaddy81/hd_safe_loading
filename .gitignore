@@ -1,4 +1,4 @@
-./node_modules
-./scss
-./.sass-cache
-./scss-lint-report.xml
+node_modules/
+scss/
+.sass-cache/
+scss-lint-report.xml
