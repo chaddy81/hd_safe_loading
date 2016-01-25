@@ -147,8 +147,126 @@
       <source src="video/run_1.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="finish-screen">
-    <p>Great Job!</p>
+  <div class="drop-hitch clearfix">
+    <div class="question-container pull-left">
+      <div class="description">
+        <p>A trailer must always be connected to the tow vehicle prior to loading. Although you are not allowed to make the actual connection, it is your job to ensure customers safely hitch rented trailers; so you need to know how to properly hitch a trailer.</p>
+      </div>
+      <hr align="left" />
+      <div class="description">
+        <h4>Let's Practice</h4>
+        <p>Drag and drop the trailer coupler onto the hitch ball.</p>
+      </div>
+    </div>
+    <div class="image-container pull-right">
+      <img src="images/truck.png" class="truck" />
+      <img src="images/hitch.png" class="hitch" draggable />
+    </div>
+  </div>
+  <div class="fully-seated clearfix">
+    <div class="question-container pull-left">
+      <div class="description">
+        <h2>Good Job</h2>
+        <p>
+          Remember to always make sure
+          <br />
+          the coupler is fully sealed.
+        </p>
+        <br />
+        <a class="btn btn-green" onClick="showChains()">Continue Training Course <span>&Hat;</span></a>
+      </div>
+    </div>
+    <div class="image-container pull-right">
+      <img src="images/Hitch_Seated.gif" />
+    </div>
+  </div>
+  <div class="select-chain clearfix">
+    <div class="question-container pull-left">
+      <div class="description">
+        <p>
+          The chains must be connected in
+          <br />
+          the proper crisscross pattern.
+        </p>
+      </div>
+      <hr />
+      <div class="description">
+        <h4>Let's Practice</h4>
+        <p>
+          Select the correct chain attachment
+          <br />
+          point for this chain.
+        </p>
+      </div>
+    </div>
+
+    <div class="image-container pull-right">
+      <div class="styled-select wrong-chain">
+        <input type="radio" name="chain-1" id="wrong" />
+        <label for="wrong"></label>
+      </div>
+      <div class="styled-select right-chain">
+        <input type="radio" name="chain-1" id="right" />
+        <label for="right"></label>
+      </div>
+    </div>
+  </div>
+  <div class="select-chain-2 clearfix">
+    <div class="question-container pull-left">
+      <div class="description">
+        <p>
+          The chains must be connected in
+          <br />
+          the proper crisscross pattern.
+        </p>
+      </div>
+      <hr />
+      <div class="description">
+        <h4>Let's Practice</h4>
+        <p>
+          Now select the correct chain
+          <br />
+          attachment point for the remaining chain.
+        </p>
+      </div>
+    </div>
+
+    <div class="image-container pull-right">
+      <div class="styled-select wrong-chain-1">
+        <input type="radio" name="chain-2" id="wrong1" />
+        <label for="wrong1"></label>
+      </div>
+      <div class="styled-select right-chain-1">
+        <input type="radio" name="chain-2" id="right1" />
+        <label for="right1"></label>
+      </div>
+    </div>
+  </div>
+  <div class="select-chain-complete clearfix">
+    <div class="question-container pull-left">
+      <div class="description">
+        <h2>Great Job!</h2>
+        <p>
+          This trailer is now secured properly.</p>
+      </div>
+      <hr />
+      <div class="description">
+        <p>
+          Make sure you have connected the chains so
+          <br />
+          that there is enough slack.
+        </p>
+        <a class="btn btn-green" onClick="lastVideo()">Continue Training Course <span>&Hat;</span></a>
+      </div>
+    </div>
+
+    <div class="image-container pull-right"></div>
+  </div>
+
+  <div class="video-container">
+    <video class="video" controls>
+      <source src="video/run_1.mp4" type="video/mp4">
+    </video>
   </div>
 
   <div id="modal" class="modal">

@@ -3,16 +3,29 @@
 var startButton = document.getElementsByClassName('start-button')[0],
     videoContainer = document.getElementsByClassName('video-container')[0],
     videoContainer2 = document.getElementsByClassName('video-container')[1],
+    videoContainer3 = document.getElementsByClassName('video-container')[2],
     video = document.getElementsByClassName('video')[0],
     video2 = document.getElementsByClassName('video')[1],
+    video3 = document.getElementsByClassName('video')[2],
     glasspane = document.getElementsByClassName('glasspane')[0],
     selectRope = document.getElementsByClassName('select-rope')[0],
     carScreen = document.getElementsByClassName('car-screen')[0],
     carFinished = document.querySelector('div#car-finished'),
     finishScreen = document.getElementsByClassName('finish-screen')[0],
     greenBtn = document.getElementsByClassName('btn-green')[0],
-    rightAnswers = document.querySelectorAll('input[class=right]');
+    rightAnswers = document.querySelectorAll('input[class=right]'),
+    dropHitch = document.querySelector('div.drop-hitch'),
+    truck = document.querySelector('img.truck'),
+    hitch = document.querySelector('img.hitch'),
+    fullySeated = document.querySelector('div.fully-seated'),
+    selectChain = document.querySelector('div.select-chain'),
+    selectChain2 = document.querySelector('div.select-chain-2'),
+    selectChainComplete = document.querySelector('div.select-chain-complete'),
     modal = document.getElementById('modal');
+
+hitch.addEventListener('dragstart', dragStart, false);
+truck.addEventListener('drop', dragDrop, false);
+truck.addEventListener("dragover", dragOver, false);
 
 startButton.onclick = function(e) {
   e.preventDefault();
@@ -55,16 +68,18 @@ function dragOver(ev) {
 function dragStart(ev) {
   ev.dataTransfer.effectAllowed = 'move';
   ev.dataTransfer.setData("text", ev.target.getAttribute('class'));
+  console.log(ev.target.getAttribute('class'));
   return true;
 }
 
 function dragDrop(ev) {
   var data = ev.dataTransfer.getData("text");
+  console.log(data);
   ev.stopPropagation();
 
-  if (data === 'trailer') {
-    selectRope.style.display = "none";
-    finishScreen.style.display = "block";
+  if (data === 'hitch') {
+    dropHitch.style.display = "none";
+    fullySeated.style.display = "block";
   }
 
   return false;
@@ -97,3 +112,37 @@ function nextVideo() {
   videoContainer2.style.display = "block";
   video2.play();
 };
+
+video2.onended = function() {
+  videoContainer2.style.display = "none";
+  dropHitch.style.display = "block";
+}
+
+function showChains() {
+  fullySeated.style.display = "none";
+  selectChain.style.display = "block";
+}
+
+var rightChain = document.querySelector('div.right-chain');
+rightChain.addEventListener('click', nextChain);
+
+function nextChain() {
+  setTimeout(function() {
+    selectChain.style.display = "none";
+    selectChain2.style.display = "block";
+  }, 250);
+}
+
+var rightChain1 = document.querySelector('div.right-chain-1');
+rightChain1.addEventListener('click', showComplete);
+
+function showComplete() {
+  selectChain2.style.display = "none"
+  selectChainComplete.style.display = "block";
+}
+
+function lastVideo() {
+  selectChainComplete.style.display = "none";
+  videoContainer3.style.display = "block";
+  video3.play();
+}
