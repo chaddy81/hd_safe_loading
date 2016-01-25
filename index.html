@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+<head>
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div class="glasspane">
+    <a class="start-button">Let's Start</a>
+  </div>
+  <div class="video-container">
+    <video class="video" controls>
+      <source src="video/run_1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="select-rope">
+    <div class="rope clearfix">
+      <div class="description pull-left">
+        <p>
+          A customer wants to put 3 sheets of 1/2" plywood on the roof of a sedan. After verifying the product weight is 150 pounds and one passenger will be in the vehicle during transport, we are well within our safe maximum payload. On the Tie Down Selection Table, locate the Non-Contained (Non-Sided) Vehicle section.
+        </p>
+      </div>
+      <div class="image-container pull-right">
+        <img src="images/rope.jpg" width="75%" />
+        <p>
+          <input id="rope" type="radio" value="rope" />
+          <label for="rope"><span></span>3/8 Inch Rope</label>
+        </p>
+      </div>
+    </div>
+    <hr align="left" />
+    <div class="twine clearfix">
+      <div class="description pull-left">
+        <h4>Let's Practice</h4>
+        <p>
+          Knowing the information above, use the Tie Down Selection Table and click on the correct selection of twine or rope for securing the load to the vehicle.
+        </p>
+
+        <a data-target="modal" class="btn" onClick="showModal()">View the Tie Down Selection Table <span>&Hat;</span></a>
+      </div>
+      <div class="image-container pull-right">
+        <img src="images/twine.jpg" width="65%" />
+        <p>
+          <input id="twine" type="radio" value="twine" />
+          <label for="twine"><span></span>Twine</label>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="car-screen clearfix">
+    <div class="question-container pull-left">
+      <div class="description">
+        <p>You are correct, you will use 3/8 inch rope. Remember, a customer wants to put 3 sheets of 1/2" plywood on the roof of a sedan. The product weight is 150 pounds and there will be one passenger in the vehicle during transport. On the Tie Down Selection Table, locate the Non-Contained (Non-Sided) Vehicle section.</p>
+
+        <p>So for this sedan, use two 3/8 inch ropes running A to A; and use one 3/8 inch rope running B to B.</p>
+      </div>
+      <hr align="left" />
+      <div class="description">
+        <h4>Let's Practice</h4>
+        <p>Using the Tie Down Selection Table, click on the points on the vehicle where you would advise the customer to secure the sheet goods.</p>
+
+        <a data-target="modal" class="btn" onClick="showModal()">View the Tie Down Selection Table <span>&Hat;</span></a>
+      </div>
+    </div>
+    <div class="car-container pull-right">
+      <div class="styled-select right-1">
+        <input type="checkbox" class="right" id="right-1" />
+        <label for="right-1"></label>
+      </div>
+
+      <div class="styled-select right-2">
+        <input type="checkbox" class="right" id="right-2" />
+        <label for="right-2"></label>
+      </div>
+
+      <div class="styled-select right-3">
+        <input type="checkbox" class="right" id="right-3" />
+        <label for="right-3"></label>
+      </div>
+
+      <div class="styled-select right-4">
+        <input type="checkbox" class="right" id="right-4" />
+        <label for="right-4"></label>
+      </div>
+
+      <div class="styled-select right-5">
+        <input type="checkbox" class="right" id="right-5" />
+        <label for="right-5"></label>
+      </div>
+
+      <div class="styled-select right-6">
+        <input type="checkbox" class="right" id="right-6" />
+        <label for="right-6"></label>
+      </div>
+
+
+      <div class="styled-select wrong-1">
+        <input type="checkbox" class="wrong" id="wrong-1" />
+        <label for="wrong-1"></label>
+      </div>
+
+      <div class="styled-select wrong-2">
+        <input type="checkbox" class="wrong" id="wrong-2" />
+        <label for="wrong-2"></label>
+      </div>
+
+      <div class="styled-select wrong-3">
+        <input type="checkbox" class="wrong" id="wrong-3" />
+        <label for="wrong-3"></label>
+      </div>
+
+      <div class="styled-select wrong-4">
+        <input type="checkbox" class="wrong" id="wrong-4" />
+        <label for="wrong-4"></label>
+      </div>
+
+      <div class="styled-select wrong-5">
+        <input type="checkbox" class="wrong" id="wrong-5" />
+        <label for="wrong-5"></label>
+      </div>
+
+      <div class="styled-select wrong-6">
+        <input type="checkbox" class="wrong" id="wrong-6" />
+        <label for="wrong-6"></label>
+      </div>
+    </div>
+  </div>
+  <div id="car-finished" class="car-finished clearfix">
+    <div class="question-container pull-left">
+      <div class="description">
+        <h2>Great Job!</h2>
+        <p>This load is now secured properly.</p>
+      </div>
+      <hr align="left" />
+      <div class="description">
+        <p>Remember to always reference the Tie Down Selection Table as well as the Safe Vehicle Payload  Table when helping customers load their purchases.</p>
+
+        <a class="btn btn-green" onClick="nextVideo()">Continue Training Course <span>&Hat;</span></a>
+      </div>
+    </div>
+    <div class="car-container pull-right">&nbsp;</div>
+  </div>
+  <div class="video-container">
+    <video class="video" controls>
+      <source src="video/run_1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="finish-screen">
+    <p>Great Job!</p>
+  </div>
+
+  <div id="modal" class="modal">
+    <div>
+      <a data-target="modal" title="Close" class="close" onClick="closeModal()">X</a>
+      <img src="images/tie-down-table.jpg" class="tie-down-table" />
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
