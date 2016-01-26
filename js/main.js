@@ -13,7 +13,7 @@ var startButton = document.getElementsByClassName('start-button')[0],
     greenBtn = document.getElementsByClassName('btn-green')[0],
     rightAnswers = document.querySelectorAll('input[class=right]'),
     dropHitch = document.querySelector('div.drop-hitch'),
-    truck = document.querySelector('img.truck'),
+    receiver = document.querySelector('img.receiver'),
     hitch = document.querySelector('img.hitch'),
     fullySeated = document.querySelector('div.fully-seated'),
     selectChain = document.querySelector('div.select-chain'),
@@ -35,8 +35,8 @@ function nextPane(e) {
 };
 
 hitch.addEventListener('dragstart', dragStart, false);
-truck.addEventListener('drop', dragDrop, false);
-truck.addEventListener("dragover", dragOver, false);
+receiver.addEventListener('drop', dragDrop, false);
+receiver.addEventListener("dragover", dragOver, false);
 correctRope.addEventListener('click', processRope);
 wrongTwine.addEventListener('click', processTwine);
 rightChain.addEventListener('click', nextChain);
@@ -87,11 +87,13 @@ function dragDrop(ev) {
 function showModal() {
   modal.style.pointerEvents = "auto";
   modal.style.opacity = "1";
+  modal.style.visibility = "visible";
 }
 
 function closeModal() {
   modal.style.pointerEvents = "none";
   modal.style.opacity = "0";
+  modal.style.visibility = "hidden";
 }
 
 function getRightAnswers(e) {
