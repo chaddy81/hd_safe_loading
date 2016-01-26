@@ -1,5 +1,3 @@
-/* use strict; */
-
 var startButton = document.getElementsByClassName('start-button')[0],
     videoContainer = document.getElementsByClassName('video-container')[0],
     videoContainer2 = document.getElementsByClassName('video-container')[1],
@@ -21,13 +19,14 @@ var startButton = document.getElementsByClassName('start-button')[0],
     selectChain = document.querySelector('div.select-chain'),
     selectChain2 = document.querySelector('div.select-chain-2'),
     selectChainComplete = document.querySelector('div.select-chain-complete'),
+    correctRope = document.getElementById('rope').nextElementSibling.childNodes[0],
+    wrongTwine = document.getElementById('twine').nextElementSibling.childNodes[0],
+    rightChain = document.querySelector('div.right-chain'),
+    rightChain1 = document.querySelector('div.right-chain-1'),
     modal = document.getElementById('modal');
 
-hitch.addEventListener('dragstart', dragStart, false);
-truck.addEventListener('drop', dragDrop, false);
-truck.addEventListener("dragover", dragOver, false);
-
-startButton.onclick = function(e) {
+startButton.addEventListener('click', nextPane);
+function nextPane(e) {
   e.preventDefault();
   glasspane.style.display = "none";
   startButton.style.display = "none";
@@ -35,13 +34,18 @@ startButton.onclick = function(e) {
   video.play();
 };
 
+hitch.addEventListener('dragstart', dragStart, false);
+truck.addEventListener('drop', dragDrop, false);
+truck.addEventListener("dragover", dragOver, false);
+correctRope.addEventListener('click', processRope);
+wrongTwine.addEventListener('click', processTwine);
+rightChain.addEventListener('click', nextChain);
+rightChain1.addEventListener('click', showComplete);
+
 video.onended = function(e) {
   videoContainer.style.display = "none";
   selectRope.style.display = "block";
 };
-
-var correctRope = document.getElementById('rope').nextElementSibling.childNodes[0];
-correctRope.addEventListener('click', processRope);
 
 function processRope() {
   window.setTimeout(function() {
@@ -49,9 +53,6 @@ function processRope() {
     carScreen.style.display = "block";
   }, 500);
 }
-
-var wrongTwine = document.getElementById('twine').nextElementSibling.childNodes[0];
-wrongTwine.addEventListener('click', processTwine);
 
 function processTwine() {
   window.setTimeout(function() {
@@ -68,13 +69,11 @@ function dragOver(ev) {
 function dragStart(ev) {
   ev.dataTransfer.effectAllowed = 'move';
   ev.dataTransfer.setData("text", ev.target.getAttribute('class'));
-  console.log(ev.target.getAttribute('class'));
   return true;
 }
 
 function dragDrop(ev) {
   var data = ev.dataTransfer.getData("text");
-  console.log(data);
   ev.stopPropagation();
 
   if (data === 'hitch') {
@@ -123,18 +122,12 @@ function showChains() {
   selectChain.style.display = "block";
 }
 
-var rightChain = document.querySelector('div.right-chain');
-rightChain.addEventListener('click', nextChain);
-
 function nextChain() {
   setTimeout(function() {
     selectChain.style.display = "none";
     selectChain2.style.display = "block";
   }, 250);
 }
-
-var rightChain1 = document.querySelector('div.right-chain-1');
-rightChain1.addEventListener('click', showComplete);
 
 function showComplete() {
   selectChain2.style.display = "none"
